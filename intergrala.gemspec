@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Intergrala::VERSION
   spec.authors       = ["Patrick Metcalfe"]
   spec.email         = ["git@patrickmetcalfe.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A web application for Chief O'Keefe's BC Calculus class}
+  spec.description   = %q{It demonstrates different intergration methods.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

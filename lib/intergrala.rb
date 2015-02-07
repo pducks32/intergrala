@@ -1,5 +1,10 @@
-require "intergrala/version"
+require "sinatra/base"
 
 module Intergrala
-  # Your code goes here...
+
+  class Engine < Sinatra::Base
+    get '/' do
+      'Hello world!'
+    end
+  end
 end
