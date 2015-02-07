@@ -1,0 +1,63 @@
+@import "normalize";
+$primary-color: #ef6c00;
+$secondary-color: #039be5;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 116%;
+}
+
+.problem-form {
+  max-width: 50rem;
+  margin: 1em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    margin: 0.5rem;
+  }
+
+  .problem__submit {
+    background-color: $secondary-color;
+    border: none;
+    padding: 0.25em 0.5em;
+    color: white;
+    border-radius: 0.5em;
+  }
+}
+
+.equation {
+  &_dependent-variable {
+    font-size: 20px !important;
+    height: 2em;
+  }
+}
+.bound {
+  width: 3rem;
+}
+
+.site__header {
+  background-color: $primary-color;
+  color: white;
+  position: sticky;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-weight: 200;
+  }
+}
+.site__footer {
+  text-align: center;
+  color: #90a4ae;
+
+  a {
+    color: #64b5f6;
+  }
+}

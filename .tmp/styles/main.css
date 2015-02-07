@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-size: 116%; }
+
+.problem-form {
+  max-width: 50rem;
+  margin: 1em auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .problem-form > * {
+    margin: 0.5rem; }
+  .problem-form .problem__submit {
+    background-color: #039be5;
+    border: none;
+    padding: 0.25em 0.5em;
+    color: white;
+    border-radius: 0.5em; }
+
+.equation_dependent-variable {
+  font-size: 20px !important;
+  height: 2em; }
+
+.bound {
+  width: 3rem; }
+
+.site__header {
+  background-color: #ef6c00;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  text-align: center; }
+  .site__header h1 {
+    margin: 0;
+    font-weight: 200; }
+
+.site__footer {
+  text-align: center;
+  color: #90a4ae; }
+  .site__footer a {
+    color: #64b5f6; }
