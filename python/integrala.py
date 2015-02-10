@@ -25,16 +25,16 @@ userInput = json.loads(sys.argv[1])
 
 x = Symbol(userInput["dependentVariable"])
 method = userInput["integrationMethod"]
-if  method == "disk":
+if(method == "disk"):
 	disk = true
 elif method == "shell":
 	# print("Shell method is not yet implemented.")
 
-if (disk):
+if(disk):
 	volume = pi * integrate((x)**2,(x,0,1))  #okay this works, that squares the function and treats it symbolically, then evals the integral.
 	indefIntegral = pi * integrate((x)**2,x) #maybe you need this
 
-if (shell):
+if(shell):
 	volume = 2 * pi * integrate(x,x)
 	#volume = 2*pi * integrate(S((firstFunc)*(secondFunc)),x) #okay this is possibl the impossibly difficult part. defining the function won't be easy, i don't think, wo presetting it.
 

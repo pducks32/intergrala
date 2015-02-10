@@ -23,7 +23,7 @@ module Intergrala
     end
 
     def send_to_ian_because_Jesus(data)
-      `python python/integrala #{data}`
+      `python python/integrala.py #{data}`
     end
 
     def format(response, request)
