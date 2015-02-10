@@ -18,7 +18,8 @@ module Intergrala
       answer = JSON.parse(send_to_ian_because_Jesus raw_body)
       data = JSON.parse(raw_body)
       answer = JSON.parse(answer)
-      JSON.dump {latex: format(answer, data), volume: answer.volume}
+      result = {latex: format(answer, data), volume: answer.volume}
+      JSON.dump(result)
     end
 
     def send_to_ian_because_Jesus(data)
