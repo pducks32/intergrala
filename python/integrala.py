@@ -19,10 +19,8 @@ disk = 0
 shell = 0
 volume = 0 #just defining for now
 
-userInput = json.dumps(sys.argv)
+userInput = json.loads(sys.argv[1])
 # userInput = json.dumps({"dependentVariable":"x","independentVariable":"y","integrationMethod":"disk","expression":"y","upperBound":"1","lowerBound":"0"})
-#this turns it into a string
-userInput = json.loads(userInput)
 #above turns it into a python dict
 
 x = Symbol(userInput["dependentVariable"])
