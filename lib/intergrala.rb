@@ -34,7 +34,7 @@ module Intergrala
       public_send("latex_#{method}", **other)
     end
 
-    def latex_disk(expression:, range:, volume:, dependent: "x",)
+    def latex_disk(expression:, range:, volume:, dependent: "x")
       "2\\pi \\int ^{#{range.min}}_{#{range.max}}#{expression}^{2}d#{dependent}=#{answer}"
     end
 
