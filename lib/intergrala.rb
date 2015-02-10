@@ -17,5 +17,13 @@ module Intergrala
       data = JSON.parse(request.body.read)
       data.to_json
     end
+
+    def latex_disk(expression:, range:, dependent: "x")
+      "2\\pi \\int ^{#{range.max}}_{#{range.max}}#{expression}^{2}d#{dependent}=#{answer}"
+    end
+
+    def latex_shell(expression:, range:, dependent: "x",)
+      "2\\pi \\int ^{#{range.max}}_{#{range.max}}#{dependent}#{expression}dx=#{answer}"
+    end
   end
 end
