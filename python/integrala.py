@@ -24,10 +24,10 @@ userInput = json.loads(sys.argv[1])
 #above turns it into a python dict
 
 x = Symbol(userInput["dependentVariable"])
-
-if userInput["integrationMethod"] == "disk":
+method = userInput["integrationMethod"]
+if  method == "disk":
 	disk = true
-elif userInput["integrationMethod"] == "shell":
+elif method == "shell":
 	# print("Shell method is not yet implemented.")
 
 if (disk):
@@ -39,4 +39,4 @@ if (shell):
 	#volume = 2*pi * integrate(S((firstFunc)*(secondFunc)),x) #okay this is possibl the impossibly difficult part. defining the function won't be easy, i don't think, wo presetting it.
 
 # i don't know if this is necessary, or if i can juts print it
-print(json.dumps({"volume":volume,"latex":latex(volume)}))
+print(json.dumps({"volume":volume, "method": method, "latex":latex(volume)}))
