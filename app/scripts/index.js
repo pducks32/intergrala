@@ -69,6 +69,7 @@ equation = {
       data: data,
       success: function(data) {
         console.log(data);
+        render(JSON.parse(data));
       }
     });
   }
@@ -103,6 +104,16 @@ updateEach = function(container) {
 
 checkBounds = function() {
   return equation.lowerBound < equation.upperBound;
+};
+
+render = function(data) {
+  $latex = $("<div data-expr='" + data.latex + "'></div>");
+  $(".rendering").append($latex);
+
+  var tex = document.getElementsByClassName("[data-expr]");
+  Array.prototype.forEach.call(tex, function(el) {
+    katex.render(el.getAttribute("data-expr"), el);
+  });
 };
 
 init();

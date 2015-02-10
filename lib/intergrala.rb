@@ -15,10 +15,14 @@ module Intergrala
       content_type :json
       request.body.rewind
       raw_body = request.body.read
-      answer = JSON.parse(send_to_ian_because_Jesus data)
+      answer = JSON.parse(send_to_ian_because_Jesus raw_body)
       data = JSON.parse(raw_body)
       answer = JSON.parse(answer)
       JSON.dump {latex: format(answer, data), volume: answer.volume}
+    end
+
+    def send_to_ian_because_Jesus(data)
+      `python python/integrala #{data}`
     end
 
     def format(response, request)

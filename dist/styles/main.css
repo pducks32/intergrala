@@ -194,3 +194,7 @@ body {
   color: #90a4ae; }
   .site__footer a {
     color: #64b5f6; }
+
+.rendering {
+  margin: 1em auto;
+  text-align: center; }
