@@ -28,6 +28,7 @@ method = userInput["integrationMethod"]
 if(method == "disk"):
 	disk = true
 elif method == "shell":
+	print()
 	# print("Shell method is not yet implemented.")
 
 if(disk):
