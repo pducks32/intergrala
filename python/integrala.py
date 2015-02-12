@@ -12,7 +12,7 @@
 import json
 import sys
 import os
-myPath = os.path.join(os.path.dirname(os.path.abspath(__FILE__)), "sympy/setup.py")
+myPath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sympy/setup.py")
 exec(open(myPath).read())
 from sympy import *
 from sympy.parsing.sympy_parser import *
