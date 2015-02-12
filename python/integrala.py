@@ -11,7 +11,9 @@
 
 import json
 import sys
-exec(open('sympy/setup.py').read())
+import os
+myPath = os.path.join(os.path.dirname(os.path.abspath(__FILE__)) "sympy/setup.py")
+exec(open(myPath).read())
 from sympy import *
 from sympy.parsing.sympy_parser import *
 
