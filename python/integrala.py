@@ -41,4 +41,4 @@ def myMethod(data):
 
 	return {volume: volume, latex: latexString};
 
-sys.stdout.write(Json.dump( myMethod( JSON.loads(sys.argv[1]))))
+sys.stdout.write(json.dump( myMethod( json.loads(sys.argv[1]))))
