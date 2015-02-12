@@ -69,7 +69,7 @@ equation = {
       data: data,
       success: function(data) {
         console.log(data);
-        render(JSON.parse(data));
+        render(data);
       }
     });
   }
@@ -107,10 +107,12 @@ checkBounds = function() {
 };
 
 render = function(data) {
-  $latex = $("<div data-expr='" + data.latex + "'></div>");
-  $(".rendering").append($latex);
+  console.log("Rendering");
+  string = "<div data-expr='" + data.latex + " = " + data.volume + "'></div>";
+  $latex = $(string);
+  $(".rendering").first().empty().append($latex);
 
-  var tex = document.getElementsByClassName("[data-expr]");
+  var tex = document.querySelectorAll("[data-expr]");
   Array.prototype.forEach.call(tex, function(el) {
     katex.render(el.getAttribute("data-expr"), el);
   });

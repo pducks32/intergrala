@@ -5,13 +5,13 @@ class Equation
 
   def to_json
     {
-      "dependentVariable": @dependent,
-      "independentVariable": @independent,
-      "expression": @expression,
-      "bounds": @bounds.minmax,
-      "latex": @latex,
-      "volume": @answer,
-      "method": @method
+      "dependentVariable" => @dependent,
+      "independentVariable" => @independent,
+      "expression" => @expression,
+      "bounds" => @bounds.minmax,
+      "latex" => @latex,
+      "volume" => @answer,
+      "method" => @method
     }.to_json
   end
 end

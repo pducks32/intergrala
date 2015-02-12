@@ -9,7 +9,8 @@ class EquationRunner < ProgramRunner
   end
 
   def as_json
-    JSON.parse @output
+    tokens = @output.split("@@")
+    {"answer" => tokens[0], "latex" => tokens[1]}
   end
 
   def failed?

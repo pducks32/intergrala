@@ -9,6 +9,7 @@
 #note!!!!! ** = what your would expect ^ to do in sympy!
 
 from sympy import *
+from sympy.parsing.sympy_parser import *
 import json
 import sys
 
@@ -18,11 +19,12 @@ volume = 0 #just defining for now
 
 #{"dependentVariable":"x","independentVariable":"y","integrationMethod":"disk","expression":"y","upperBound":"1","lowerBound":"0"}
 
+
 def myMethod(data):
 	userInput = data;
-	dependent = Symbol(userInput["dependentVariable"])
+	independent = Symbol(userInput["independentVariable"])
 
-	transformations = standard_transformations + (convert_xor,)
+	transformations = (standard_transformations + (convert_xor,))
 	expression = parse_expr(userInput["expression"], transformations = transformations)
 
 	intergrationMethod = userInput["integrationMethod"]
@@ -30,15 +32,16 @@ def myMethod(data):
 	lowerBound = userInput["lowerBound"]
 
 	if(intergrationMethod == "disk"):
-		latexString = latex(pi * integrate((expression)**2,(dependent, lowerBound, upperBound)))  #okay this works, that squares the function and treats it symbolically, then evals the integral.
-		volume = pi * integrate((expression)**2,(dependent, lowerBound, upperBound))
+		latexString = latex(pi * Integral((expression)**2,(independent, lowerBound, upperBound)), mode = "plain")  #okay this works, that squares the function and treats it symbolically, then evals the integral.
+		volume = pi * integrate((expression)**2,(independent, lowerBound, upperBound))
 	elif method == "shell":
 		sys.exit(15) # So my progarm can tell why it failed and fail gracefully. 15 bc Go Class of '15'!
 		# Won't get called
-		volume = 2 * pi * integrate(expression,(dependent, lowerBound, upperBound))
+		volume = 2 * pi * integrate(expression,(independent, lowerBound, upperBound))
 		#volume = 2*pi * integrate(S((firstFunc)*(secondFunc)),x) #okay this is possibl the impossibly difficult part. defining the function won't be easy, i don't think, wo presetting it.
 
 
-	return {volume: volume, latex: latexString};
+	return str(volume) + "@@" + str(latexString)
 
-sys.stdout.write(json.dump( myMethod( json.loads(sys.argv[1]))))
+result = myMethod( json.loads(sys.argv[1]) )
+sys.stdout.write( result )
