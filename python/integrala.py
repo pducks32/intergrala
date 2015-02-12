@@ -11,7 +11,7 @@
 
 import json
 import sys
-exec(open('python/sympy/setup.py').read())
+exec(open('./sympy/setup.py').read())
 from sympy import *
 from sympy.parsing.sympy_parser import *
 
