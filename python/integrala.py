@@ -8,10 +8,12 @@
 #ensure it can actually parse a function in human-readable, as opposed to sympy-readable. possibly mitigate by converting all ^ in a string to **?
 #note!!!!! ** = what your would expect ^ to do in sympy!
 
-from sympy import *
-from sympy.parsing.sympy_parser import *
+
 import json
 import sys
+sys.path.append('../python/sympy')
+from sympy import *
+from sympy.parsing.sympy_parser import *
 
 disk = 0
 shell = 0
