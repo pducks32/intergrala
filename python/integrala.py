@@ -26,14 +26,14 @@ volume = 0 #just defining for now
 
 def myMethod(data):
 	userInput = data;
-	independent = Symbol(userInput["independentVariable"])
+	independent = Symbol(userInput["independentvariable"])
 
 	transformations = (standard_transformations + (convert_xor,))
 	expression = parse_expr(userInput["expression"], transformations = transformations)
 
-	intergrationMethod = userInput["integrationMethod"]
-	upperBound = userInput["upperBound"]
-	lowerBound = userInput["lowerBound"]
+	intergrationMethod = userInput["integrationmethod"]
+	upperBound = userInput["upperbound"]
+	lowerBound = userInput["lowerbound"]
 
 	if(intergrationMethod == "disk"):
 		latexString = latex(pi * Integral((expression)**2,(independent, lowerBound, upperBound)), mode = "plain")  #okay this works, that squares the function and treats it symbolically, then evals the integral.
