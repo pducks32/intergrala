@@ -19,25 +19,26 @@ disk = 0
 shell = 0
 volume = 0 #just defining for now
 
-userInput = json.loads(sys.argv[1])
-# userInput = json.dumps({"dependentVariable":"x","independentVariable":"y","integrationMethod":"disk","expression":"y","upperBound":"1","lowerBound":"0"})
-#above turns it into a python dict
+#{"dependentVariable":"x","independentVariable":"y","integrationMethod":"disk","expression":"y","upperBound":"1","lowerBound":"0"}
 
-x = Symbol(userInput["dependentVariable"])
-method = userInput["integrationMethod"]
-if(method == "disk"):
-	disk = true
-elif method == "shell":
-	print()
+def myMethod(data):
+	userInput = data;
+	x = Symbol(userInput["dependentVariable"])
+	intergrationMethod = userInput["integrationMethod"]
+	if(intergrationMethod == "disk"):
+		disk = true
+	elif method == "shell":
+		return
 	# print("Shell method is not yet implemented.")
 
-if(disk):
-	volume = pi * integrate((x)**2,(x,0,1))  #okay this works, that squares the function and treats it symbolically, then evals the integral.
-	indefIntegral = pi * integrate((x)**2,x) #maybe you need this
+	if(disk):
+		volume = pi * integrate((x)**2,(x,0,1))  #okay this works, that squares the function and treats it symbolically, then evals the integral.
+		indefIntegral = pi * integrate((x)**2,x) #maybe you need this
 
-if(shell):
-	volume = 2 * pi * integrate(x,x)
-	#volume = 2*pi * integrate(S((firstFunc)*(secondFunc)),x) #okay this is possibl the impossibly difficult part. defining the function won't be easy, i don't think, wo presetting it.
+	if(shell):
+		volume = 2 * pi * integrate(x,x)
+		#volume = 2*pi * integrate(S((firstFunc)*(secondFunc)),x) #okay this is possibl the impossibly difficult part. defining the function won't be easy, i don't think, wo presetting it.
 
-# i don't know if this is necessary, or if i can juts print it
-print(json.dumps({"volume":volume, "method": method, "latex":latex(volume)}))
+	return {volume: volume, latex: latex};
+
+print(Json.dump( myMethod( JSON.loads(sys.argv[1]))))
