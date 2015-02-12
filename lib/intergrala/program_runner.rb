@@ -15,8 +15,6 @@ class ProgramRunner
     arguments = @program_args + [args]
     @status = Open4::popen4(*arguments.map(&:to_s)) do |pid, stdin, stdout, stderr|
       $logger.log(:python, "Opened Pipe", data: arguments)
-      stdin.close
-
       @output = stdout.read.strip
       @errors = stderr.read.strip
     end
