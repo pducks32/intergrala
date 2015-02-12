@@ -297,8 +297,12 @@ to become a full-featured computer algebra system (CAS) while keeping the code
 as simple as possible in order to be comprehensible and easily extensible.
 SymPy is written entirely in Python and does not require any external libraries.'''
 
-exec(open('sympy/release.py').read())
-with open('sympy/__init__.py') as f:
+myPath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sympy/sympy")
+
+release_file = os.path.join(myPath, "release.py")
+init_file = os.path.join(myPath, "__init__.py")
+exec(open(release_file).read())
+with open(init_file) as f:
     long_description = f.read().split('"""')[1]
 
 setup(name='sympy',
