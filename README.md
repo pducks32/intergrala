@@ -1,6 +1,6 @@
 # Intergrala
 
-TODO: Write a gem description
+A little bit of Ruby and Python to render 3d models of a given function and calculate the volume of a solid that that function would create. We could never get it working off of anything but a local rack server or with shell method (as opposed to disk method) - if you'd like to check it out, clone the repo, and install python/ruby/rack.
 
 ## Installation
 
